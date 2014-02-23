@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "gulp": "~3.5.1",
+    "gulp-ruby-sass": "~0.3.0",
+    "gulp-autoprefixer": "0.0.6",
+    "gulp-minify-css": "~0.2.0",
+    "gulp-notify": "~0.4.0",
+    "gulp-load-plugins": "~0.2.0",
+    "gulp-rename": "~0.2.2",
+    "tiny-lr": "0.0.5",
+    "gulp-livereload": "~0.3.1",
+    "gulp-plumber": "~0.5.6"
+  }
+}

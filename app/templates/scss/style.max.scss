@@ -1,0 +1,45 @@
+/*!
+Theme Name: <%= themeName %>
+Theme URI: <%= themeURI %>
+Author: <%= themeAuthor %>
+Author URI: <%= themeAuthorURI %>
+Description: <%= themeDescription %>
+Version 1.0
+License: The MIT License (MIT)
+License URI: http://opensource.org/licenses/MIT
+*/
+
+
+/* RESET & BASE
+------------------ */
+@import 'reset';
+@import 'base';
+
+/* =LAYOUTS
+------------------ */
+@import 'layout';
+@import 'header';
+@import 'nav';
+@import 'footer';
+
+/* =CONTENT
+------------------ */
+@import 'typography';
+@import 'forms';
+@import 'content';
+
+/* =COMPONENTS
+------------------ */
+/* Includes password protection for pages and posts, 404 page */
+@import 'components';
+
+
+/* =PROJECT PAGES SPECIFIC
+------------------ */
+@import 'pages';
+
+/* =BLOG SPECIFIC
+------------------ */
+@import 'blog/paging';
+@import 'blog/widgets';
+@import 'blog/comments';

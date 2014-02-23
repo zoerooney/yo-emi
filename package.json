@@ -1,0 +1,42 @@
+{
+  "name": "generator-emi",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "zoerooney/generator-emi",
+  "author": {
+    "name": "Zoe Rooney",
+    "email": "hello@zoerooney.com",
+    "url": "https://github.com/zoerooney"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "wordpress",
+    "theme",
+    "front-end",
+    "gulp",
+    "grunt",
+    "starter theme"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
