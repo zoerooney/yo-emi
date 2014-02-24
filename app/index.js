@@ -1,13 +1,14 @@
 'use strict';
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
+var util = require('util'),
+	path = require('path'),
+	yeoman = require('yeoman-generator'),
+	chalk = require('chalk'),
+	art = require('../util/art');
 
 
 var EmiGenerator = yeoman.generators.Base.extend({
   init: function () {
-    this.pkg = yeoman.file.readJSON(path.join(__dirname, '../package.json'));
+    this.pkg = require('../package.json');
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
@@ -19,11 +20,9 @@ var EmiGenerator = yeoman.generators.Base.extend({
   askFor: function () {
     var done = this.async();
 
-    // have Yeoman greet the user
-    console.log(this.yeoman);
-
-    // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('You\'re about to generate a new starter theme based on Emi. Just a few questions to get started...'));
+    // Welcome art & description
+    console.log(chalk.yellow(art.emi));
+    console.log(chalk.yellow('You\'re about to generate a new starter theme based on Emi. Just a few questions to get started...'));
 
     var prompts = [{
       name: 'themeName',
@@ -52,10 +51,10 @@ var EmiGenerator = yeoman.generators.Base.extend({
     }, {
       type: 'confirm',
       name: 'taskRunner',
-      message: 'Would you like to use Grunt instead of Gulp as your task runner?',
+      message: 'Would you prefer to use Grunt instead of Gulp?',
       default: false
     }];
-
+	
     this.prompt(prompts, function (props) {
       
       this.themeName = props.themeName;
@@ -72,42 +71,45 @@ var EmiGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-    this.mkdir( this.themeFolder );
+    this.mkdir( this.themeHandle );
 	this.directory( 'assets', this.themeHandle + '/assets' );
 	this.directory( 'inc', this.themeHandle + '/inc' );
 	this.directory( 'scss', this.themeHandle + '/scss' );
-	
-	this.template('404.php', '404.php');
-	this.template('503.php', '503.php');
-	this.template('comments.php', 'comments.php');
-	this.template('content-page.php', 'content-page.php');
-	this.template('content.php', 'content.php');
-	this.template('footer.php', 'footer.php');
-	this.template('front-page.php', 'front-page.php');
-	this.template('functions.php', 'functions.php');
-	this.template('header.php', 'header.php');
-	this.template('index.php', 'index.php');
-	this.template('page-full-width.php', 'page-full-width.php');
-	this.template('page-redirect-url.php', 'page-redirect-url.php');
-	this.template('page-redirect.php', 'page-redirect.php');
-	this.template('page.php', 'page.php');
-	this.template('search.php', 'search.php');
-	this.template('searchform.php', 'searchform.php');
-	this.template('sidebar.php', 'sidebar.php');
-	this.template('single.php', 'single.php');
-	
-	this.copy('style.css', 'style.css');
-	this.copy('gitignore', '.gitignore');
-	
-	if ( this.taskRunner ) {
-		this.copy('gruntfile.js', 'Gruntfile.js');
-	    this.template('grunt-package.json', 'package.json');
-    } else {
-	    this.copy('gulpfile.js', 'gulpfile.js');
-	    this.copy('gulp-package.json', 'package.json');
-    }
   },
-
+  
+  projectfiles: function () {
+    this.template('404.php', '404.php');
+    this.template('503.php', '503.php');
+    this.template('comments.php', 'comments.php');
+    this.template('content-page.php', 'content-page.php');
+    this.template('content.php', 'content.php');
+    this.template('footer.php', 'footer.php');
+    this.template('front-page.php', 'front-page.php');
+    this.template('functions.php', 'functions.php');
+    this.template('header.php', 'header.php');
+    this.template('index.php', 'index.php');
+    this.template('page-full-width.php', 'page-full-width.php');
+    this.template('page-redirect-url.php', 'page-redirect-url.php');
+    this.template('page-redirect.php', 'page-redirect.php');
+    this.template('page.php', 'page.php');
+    this.template('search.php', 'search.php');
+    this.template('searchform.php', 'searchform.php');
+    this.template('sidebar.php', 'sidebar.php');
+    this.template('single.php', 'single.php');
+    
+    this.copy('style.css', 'style.css');
+    this.copy('gitignore', '.gitignore');
+    
+    if ( this.taskRunner ) {
+    	this.copy('gruntfile.js', 'Gruntfile.js');
+        this.template('grunt-package.json', 'package.json');
+    } else {
+        this.copy('gulpfile.js', 'gulpfile.js');
+        this.copy('gulp-package.json', 'package.json');
+    }
+    
+  }
+  
 });
 
 module.exports = EmiGenerator;
