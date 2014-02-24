@@ -23,7 +23,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
     console.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    console.log(chalk.magenta('You\re about to generate a new theme based on the Emi starter theme from Zoe Rooney Web Development. Just a few questions to get started...'));
+    console.log(chalk.magenta('You\'re about to generate a new starter theme based on Emi. Just a few questions to get started...'));
 
     var prompts = [{
       name: 'themeName',
@@ -42,7 +42,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
 	  }
     },{
       name: 'themeURI',
-      message: 'What is the final website URL, if you know it (where the theme will live)?',
+      message: 'What is the final website URL?'
     },{
       name: 'themeDescription',
       message: 'Please briefly describe this theme.',
@@ -67,7 +67,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
       this.themeDescription = props.themeDescription;
       this.taskRunner = props.taskRunner;
       
-      cb();
+      done();
     }.bind(this));
   },
 
@@ -108,10 +108,6 @@ var EmiGenerator = yeoman.generators.Base.extend({
     }
   },
 
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
-  }
 });
 
 module.exports = EmiGenerator;
