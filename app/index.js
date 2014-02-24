@@ -71,10 +71,9 @@ var EmiGenerator = yeoman.generators.Base.extend({
   },
 
   app: function () {
-    this.mkdir( this.themeHandle );
-	this.directory( 'assets', this.themeHandle + '/assets' );
-	this.directory( 'inc', this.themeHandle + '/inc' );
-	this.directory( 'scss', this.themeHandle + '/scss' );
+	this.directory( 'assets', 'assets' );
+	this.directory( 'inc', 'inc' );
+	this.directory( 'scss', 'scss' );
   },
   
   projectfiles: function () {
