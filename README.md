@@ -1,10 +1,11 @@
-███████╗ ███╗   ███╗ ██╗ \n
-██╔════╝ ████╗ ████║ ██║ \n
-█████╗   ██╔████╔██║ ██║ \n
-██╔══╝   ██║╚██╔╝██║ ██║ \n
-███████╗ ██║ ╚═╝ ██║ ██║ \n
-╚══════╝ ╚═╝     ╚═╝ ╚═╝ \n
-
+```
+███████╗ ███╗   ███╗ ██╗
+██╔════╝ ████╗ ████║ ██║
+█████╗   ██╔████╔██║ ██║
+██╔══╝   ██║╚██╔╝██║ ██║
+███████╗ ██║ ╚═╝ ██║ ██║
+╚══════╝ ╚═╝     ╚═╝ ╚═╝
+```
 ## Emi, an automated WordPress Starter Theme
 
 Emi is a WordPress starter theme package that has been automated to include a generator (using [Yeoman](http://yeoman.io)). The generated themes contain Sass and your choice of [Gulp.js](gulpjs.com) or [Grunt](gruntjs.com) for further automation.
@@ -49,6 +50,11 @@ Then, you should be able to initiate the generator (you'll want to do this withi
 ```
 $ yo emi
 ```
+
+## Changelog
+
+1.0.0 Initial release
+
 
 ## License
 
