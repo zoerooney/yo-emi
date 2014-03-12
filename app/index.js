@@ -18,8 +18,9 @@ var EmiGenerator = yeoman.generators.Base.extend({
   },
 
   askFor: function () {
+    
     var done = this.async();
-
+	
     // Welcome art & description
     console.log(chalk.yellow(art.emi));
     console.log(chalk.yellow('You\'re about to generate a new starter theme based on Emi. Just a few questions to get started...'));
@@ -48,11 +49,6 @@ var EmiGenerator = yeoman.generators.Base.extend({
       default: function( answers ) {
      	 return ''+answers.themeName+' custom theme.';
       }
-    }, {
-      type: 'confirm',
-      name: 'taskRunner',
-      message: 'Would you prefer to use Grunt instead of Gulp?',
-      default: false
     }];
 	
     this.prompt(prompts, function (props) {
@@ -98,14 +94,8 @@ var EmiGenerator = yeoman.generators.Base.extend({
     
     this.copy('style.css', 'style.css');
     this.copy('gitignore', '.gitignore');
-    
-    if ( this.taskRunner ) {
-    	this.copy('gruntfile.js', 'Gruntfile.js');
-        this.template('grunt-package.json', 'package.json');
-    } else {
-        this.copy('gulpfile.js', 'gulpfile.js');
-        this.copy('gulp-package.json', 'package.json');
-    }
+    this.copy('gulpfile.js', 'gulpfile.js');
+    this.copy('gulp-package.json', 'package.json');
     
   }
   
