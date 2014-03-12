@@ -4,23 +4,38 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
+    newer = require('gulp-newer'),
+    imagemin = require('gulp-imagemin'),
     notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
     lr = require('tiny-lr'),
     server = lr();
+
+var imgSrc = 'assets/images/originals/*';
+var imgDest = 'assets/images';
     
-gulp.task('default', function(){
+gulp.task('styles', function(){
 	return gulp.src('scss/style.scss')
 	    .pipe(plumber())
 	    .pipe(sass({ style: 'expanded' }))
-	    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 	    .pipe(gulp.dest(''))
-	    .pipe(rename({suffix: '.max'}))
+	    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 	    .pipe(minifycss())
-	    .pipe(rename({suffix: './'}))
-	    .pipe(gulp.dest('./'))
+	    .pipe(gulp.dest(''))
 	    .pipe(livereload(server));
+	
 });
+
+gulp.task('images', function() {
+  
+   
+  return gulp.src(imgSrc, {base: 'assets/images/originals'})
+        .pipe(newer(imgDest))
+        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+        .pipe(gulp.dest(imgDest));
+});
+
+gulp.task('default', ['styles', 'images']);
 
 gulp.task('watch', function() {
   // Listen on port 35729
@@ -30,7 +45,8 @@ gulp.task('watch', function() {
       };
   
       // Watch .scss files
-      gulp.watch('scss/*.scss', ['default']);
+      gulp.watch('scss/*.scss', ['styles']);
+      gulp.watch('assets/images/originals/**', ['images']);
   
     });
 
