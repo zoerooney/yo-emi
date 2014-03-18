@@ -23,7 +23,7 @@ gulp.task('styles', function(){
 	    .pipe(minifycss())
 	    .pipe(gulp.dest(''))
 	    .pipe(livereload(server));
-	
+
 });
 
 gulp.task('images', function() {
