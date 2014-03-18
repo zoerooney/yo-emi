@@ -55,7 +55,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
       
       this.themeName = props.themeName;
       this.themeFunction = props.themeName.toLowerCase().trim().replace(/\s+/, "_");
-      this.themeHandle = props.themeName.toLowerCase().trim().replace(/\s+/g, '');
+      this.themeHandle = props.themeName.toLowerCase().trim().replace(/\s+/g, '-');
 	  this.themeAuthor = props.themeAuthor;
       this.themeAuthorURI = props.themeAuthorURI;
       this.themeURI = props.themeURI;

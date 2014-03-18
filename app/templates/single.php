@@ -1,26 +1,25 @@
 <?php
 /**
- * The Template for displaying all single posts.
+ * Single Post Template
+ * 
+ * Used for displaying single posts from the posts type and any
+ * custom post types, unless a CPT single post template is specified.
  *
- * @package WordPress
- * @subpackage <%= themeFunction %>
- * @since <%= themeName %> 1.0
+ * @package <%= themeFunction %>
  */
 
 get_header(); ?>
 
-		<div id="primary">
-			<div id="content" role="main">
+<section id="primary">
 
-				<?php while ( have_posts() ) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', 'single' ); ?>
+		<?php get_template_part( 'content', 'single' ); ?>
 
-					<?php comments_template( '', true ); ?>
+		<?php comments_template( '', true ); ?>
 
-				<?php endwhile; // end of the loop. ?>
+	<?php endwhile; // end of the loop. ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+</section><!-- #primary -->
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

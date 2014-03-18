@@ -1,13 +1,13 @@
 <?php
 /**
- * The Sidebar containing the main widget area.
+ * The Sidebar
+ * 
+ * Main sidebar template including dynamic sidebar widgetized 
+ * areas as defined in functions.php
  *
- * @package WordPress
- * @subpackage <%= themeFunction %>
- * @since <%= themeName %> 1.0
+ * @package <%= themeFunction %>
  */
-
 ?>
-		<div id="secondary" class="widget-area" role="complementary">
-			<?php dynamic_sidebar('sidebar-1'); ?>
-		</div><!-- #secondary .widget-area -->
+<section id="secondary" class="widget-area" role="complementary">
+	<?php dynamic_sidebar('sidebar-1'); ?>
+</section><!-- #secondary .widget-area -->

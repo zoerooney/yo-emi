@@ -1,7 +1,9 @@
 <?php
-/*
-Template Name: Redirect To URL
-*/
+/** 
+ * Template Name: Redirect To URL
+ * 
+ * @package <%= themeFunction %>
+ */
 if (have_posts() {
   while (have_posts()) {
     the_post();
