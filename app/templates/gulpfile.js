@@ -15,7 +15,7 @@ var imgSrc = 'assets/images/originals/*';
 var imgDest = 'assets/images';
     
 gulp.task('styles', function(){
-	return gulp.src('scss/style.scss')
+	return gulp.src('scss/style.scss', {base: 'scss'})
 	    .pipe(plumber())
 	    .pipe(sass({ style: 'expanded' }))
 	    .pipe(gulp.dest(''))
