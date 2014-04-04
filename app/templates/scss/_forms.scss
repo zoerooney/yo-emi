@@ -1,7 +1,7 @@
 input[type=text],
 input[type=password],
 textarea {
-	border: 1px solid TEXTCOLOR;
+	border: 1px solid $color-text;
 	font-size: 13px;
 	height: 19px;
 	line-height: 1.2em;
@@ -9,7 +9,7 @@ textarea {
 }
 input[type=text]:focus,
 textarea:focus {
-	color: TEXTCOLOR;
+	color: $color-text;
 }
 textarea {
 	padding-left: 3px;
@@ -17,7 +17,7 @@ textarea {
 }
 input#s {
 	background: #FFF;
-	border: 1px solid TEXTCOLOR;
+	border: 1px solid $color-text;
 	font-size: 13px;
 	height: 19px;
 	line-height: 1.2em;
@@ -30,5 +30,5 @@ input#searchsubmit {
 	margin-left: 10px;
 }
 ::placeholder {
-	color: TEXTCOLOR;
+	color: $color-text;
 }

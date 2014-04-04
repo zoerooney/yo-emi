@@ -6,7 +6,7 @@
 }
 .nopassword,
 .nocomments {
-	color: TEXTCOLOR;
+	color: $color-text;
 	font-size: 24px;
 	font-weight: 100;
 	margin: 26px 0;
@@ -55,7 +55,7 @@ article.comment {
 	font-style: normal;
 	display: block;
 	clear: right;
-	color: TEXTCOLOR;
+	color: $color-text;
 }
 .comment-content p {
 	margin-bottom: 1em;
@@ -64,7 +64,7 @@ article.comment {
 	margin-bottom: 0;
 }
 a.comment-reply-link {
-	color: LINKHOVER;
+	color: $color-hover;
 	display: inline-block;
 	text-decoration: none;
 	margin-top: 10px;
