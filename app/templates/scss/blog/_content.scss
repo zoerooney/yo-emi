@@ -12,7 +12,7 @@
 .entry-title,
 .entry-title a {
 	clear: both;
-	color: LINKHOVER;
+	color: $color-hover;
 	font-size: 30px;
 	line-height: 1em;
 	padding-bottom: .3em;
@@ -22,7 +22,7 @@
 	clear: both;
 }
 .entry-date {
-	color: LINKCOLOR;
+	color: $color-link;
 	font-size: 11px;
 	padding-bottom: 2px;
 }
@@ -139,7 +139,7 @@ p img,
 }
 .wp-caption .wp-caption-text,
 .gallery-caption {
-	color: LINKCOLOR;
+	color: $color-link;
 	font-size: 10px;
 }
 .wp-caption .wp-caption-text {

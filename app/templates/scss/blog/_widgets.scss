@@ -5,7 +5,7 @@
 	padding: 15px 0;
 }
 .widget-title {
-	color: LINKCOLOR;
+	color: $color-link;
 	font-size: 18px;
 	letter-spacing: 0.05em;
 	text-align: left;
@@ -45,7 +45,7 @@
 /* Calendar Widget */
 
 .widget_calendar #wp-calendar {
-	color: TEXTCOLOR;
+	color: $color-text;
 	width: 95%;
 }
 .widget_calendar #wp-calendar caption,

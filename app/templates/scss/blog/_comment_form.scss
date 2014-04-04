@@ -15,7 +15,7 @@
   display: inline-block;
   padding: 2px 5px;
   border: none;
-  border: 1px solid TEXTCOLOR;
+  border: 1px solid $color-text;
 }
 #respond input[type="text"] {
   width: 255px;
@@ -24,7 +24,7 @@
   resize: vertical;
   width: 570px;
   min-height: 150px;
-  border: 1px solid TEXTCOLOR;
+  border: 1px solid $color-text;
 }
 #respond .comment-form-author,
 #respond .comment-form-email,
@@ -43,14 +43,14 @@
 #respond .comment-form-email label,
 #respond .comment-form-url label,
 #respond .comment-form-comment label {
-  color: TEXTCOLOR;
+  color: $color-text;
   display: inline-block;
   padding: 0px 10px 8px;
   position: relative;
   z-index: 1;
 }
 #respond .logged-in-as a {
-  color: TEXTCOLOR;
+  color: $color-text;
 }
 #respond p {
   margin: 5px 0;
@@ -67,7 +67,7 @@
 #respond input#submit:hover {
 }
 #respond #cancel-comment-reply-link {
-  color: TEXTCOLOR;
+  color: $color-text;
   margin-left: 10px;
   text-decoration: none;
 }
@@ -76,7 +76,7 @@
   width: auto;
 }
 #cancel-comment-reply-link {
-  color: TEXTCOLOR;
+  color: $color-text;
   display: block;
   position: absolute;
   right: 1.5em;
