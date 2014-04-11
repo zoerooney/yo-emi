@@ -15,8 +15,8 @@
 <footer id="colophon" role="contentinfo">
 	<div id="site-generator">
 		&copy; <?php echo date('Y'); echo '&nbsp;'; echo bloginfo( 'name' ); ?><br>
-		Site by <a href="<%= themeDesignerURI %>" target="_blank"><%= themeDesigner %></a> &amp; 
-    <a href="<%= themeAuthorURI %>" target="_blank">Development by <%= themeAuthor %></a>
+		Site by <a href="<%= themeDesignerURI %>" target="_blank" rel="nofollow"><%= themeDesigner %></a> &amp; 
+    <a href="<%= themeAuthorURI %>" target="_blank" rel="nofollow">Development by <%= themeAuthor %></a>
 	</div>
 </footer><!-- #colophon -->
 
