@@ -1,9 +1,21 @@
 'use strict';
-var util = require('util'),
-	path = require('path'),
-	yeoman = require('yeoman-generator'),
-	chalk = require('chalk'),
-	art = require('../util/art');
+var util	= require('util'),
+	path	= require('path'),
+	fs		= require('fs'),
+	yeoman	= require('yeoman-generator'),
+	chalk	= require('chalk'),
+	art		= require('../util/art');
+
+
+// download the framework and unzip it in the project app/
+Generator.prototype.createApp = function createApp() {
+var	cb		= this.async(),
+	self	= this
+
+	this.log.writeln('Let\'s grab the latest version of Emi...')
+	this.log.writeln('Downloading... easy like Sunday morning!')
+	this.tarball('https://github.com/zoerooney/Emi/archive/master.tar.gz', 'app/template', cb)
+}
 
 
 var EmiGenerator = yeoman.generators.Base.extend({
@@ -13,6 +25,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
     this.on('end', function () {
       if (!this.options['skip-install']) {
         this.npmInstall();
+        this.spawnCommand('gulp', ['styles']);
       }
     });
   },
@@ -117,5 +130,6 @@ var EmiGenerator = yeoman.generators.Base.extend({
   }
   
 });
+
 
 module.exports = EmiGenerator;
