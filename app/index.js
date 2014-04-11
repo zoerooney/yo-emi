@@ -26,40 +26,57 @@ var EmiGenerator = yeoman.generators.Base.extend({
     console.log(chalk.yellow('You\'re about to generate a new starter theme based on Emi. Just a few questions to get started...'));
 
     var prompts = [{
-      name: 'themeName',
-      message: 'What do you want to name your theme?',
-    },{
-      name: 'themeAuthor',
-      message: 'Who is the theme author?',
-      default: function( answers ) {
-	      return 'Zoe Rooney Web Development';
-	    }
-    },{
-      name: 'themeAuthorURI',
-      message: 'What\'s their website URL (the author)?',
-      default: function( answers ) {
-	      return 'http://www.zoerooney.com';
-	  }
-    },{
-      name: 'themeURI',
-      message: 'What is the final website URL?'
-    },{
-      name: 'themeDescription',
-      message: 'Please briefly describe this theme.',
-      default: function( answers ) {
-     	 return ''+answers.themeName+' custom theme.';
+        name: 'themeName',
+        message: 'What do you want to name your theme?',
+      },{
+        name: 'themeAuthor',
+        message: 'Who is the theme author?',
+        default: function( answers ) {
+  	      return 'Zoe Rooney Web Development';
+  	    }
+      },{
+        name: 'themeAuthorURI',
+        message: 'What\'s their website URL (the author)?',
+        default: function( answers ) {
+  	      return 'http://www.zoerooney.com';
+  	  }
+      },{
+        name: 'themeURI',
+        message: 'What is the final website URL?'
+      },{
+        name: 'themeDescription',
+        message: 'Please briefly describe this theme.',
+        default: function( answers ) {
+       	 return ''+answers.themeName+' custom theme';
+        }
+      }, {
+        name: 'themeDesigner',
+        message: 'themeDesigner',
+        default: function( answers ) {
+          return answers.themeAuthor;
+        }
+      }, {
+        name: 'themeDesignerURI',
+        message: 'Designer\'s website URL?',
+        default: function( answers ) {
+          return answers.themeAuthorURI;
+        }
       }
-    }];
+    ];
 	
     this.prompt(prompts, function (props) {
       
       this.themeName = props.themeName;
       this.themeFunction = props.themeName.toLowerCase().trim().replace(/\s+/, "_");
       this.themeHandle = props.themeName.toLowerCase().trim().replace(/\s+/g, '-');
-	  this.themeAuthor = props.themeAuthor;
+	    this.themeAuthor = props.themeAuthor;
       this.themeAuthorURI = props.themeAuthorURI;
       this.themeURI = props.themeURI;
       this.themeDescription = props.themeDescription;
+
+      this.themeDesigner = props.themeDesigner;
+      this.themeDesignerURI = props.themeDesignerURI;
+
       this.taskRunner = props.taskRunner;
       
       done();

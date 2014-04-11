@@ -52,6 +52,8 @@ describe('emi generator', function () {
       'themeAuthorURI': true,
       'themeURI': true,
       'themeDescription': true,
+      'themeDesigner': true,
+      'themeDesignerURI': true,
       'taskRunner': true
     });
     this.app.options['skip-install'] = true;
