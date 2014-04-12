@@ -1,8 +1,10 @@
 {
   "name": "generator-emi",
   "version": "2.0.0",
-  "description": "Yeoman generator for the Emi Starter Theme",
+  "description": "Generate a clean, Sass and Gulp-ready WordPress starter theme",
   "license": "MIT",
+  "homepage": "https://github.com/zoerooney/yo-emi",
+  "bugs": "https://github.com/zoerooney/yo-emi/issues",
   "main": "app/index.js",
   "repository": {
   	"type": "git",
@@ -10,7 +12,8 @@
   }, 
   "author": {
     "name": "Zoe Rooney",
-    "email": "hello@zoerooney.com"
+    "email": "hello@zoerooney.com",
+    "url": "http://github.com/zoerooney"
   },
   "engines": {
     "node": ">=0.10.0",
