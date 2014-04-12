@@ -1,6 +1,6 @@
 ## Emi, an automated WordPress Starter Theme
 
-Emi is a WordPress starter theme package that has been automated to include a generator (using [Yeoman](http://yeoman.io)). The generated themes contain Sass and your choice of [Gulp.js](gulpjs.com) or [Grunt](gruntjs.com) for further automation.
+Emi is a WordPress starter theme package that has been automated to include a generator (using [Yeoman](http://yeoman.io)). The generated themes is set up with Sass and [Gulp.js](gulpjs.com) for further automation.
 
 ## Getting Started
 
@@ -45,6 +45,7 @@ $ yo emi
 
 ## Changelog
 
+2.0.0 Pulls Emi from the theme's repo
 1.0.0 Initial release
 
 

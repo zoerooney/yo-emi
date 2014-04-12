@@ -6,36 +6,32 @@ var util	= require('util'),
 	chalk	= require('chalk'),
 	art		= require('../util/art');
 
-
-// download the framework and unzip it in the project app/
-Generator.prototype.createApp = function createApp() {
-var	cb		= this.async(),
-	self	= this
-
-	this.log.writeln('Let\'s grab the latest version of Emi...')
-	this.log.writeln('Downloading... easy like Sunday morning!')
-	this.tarball('https://github.com/zoerooney/Emi/archive/master.tar.gz', 'app/template', cb)
-}
-
-
 var EmiGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
+        console.log(chalk.yellow('\n\nNext I\'ll install all the dependencies, so sit tight!\n\n'));
         this.npmInstall();
-        this.spawnCommand('gulp', ['styles']);
       }
     });
   },
-
+  grab: function() {
+	var	cb	= this.async(),
+	self 	= this
+	
+	this.log.writeln(chalk.yellow(art.emi));
+	this.log.writeln(chalk.yellow('\n\nLet\'s grab the latest version of Emi...\n\n'));
+	this.tarball('https://github.com/zoerooney/Emi/archive/master.tar.gz', '.', cb);
+	this.log.writeln(chalk.yellow('\n\nGot it!\n\n'));
+  },
   askFor: function () {
     
     var done = this.async();
 	
     // Welcome art & description
-    console.log(chalk.yellow(art.emi));
+    
     console.log(chalk.yellow('You\'re about to generate a new starter theme based on Emi. Just a few questions to get started...'));
 
     var prompts = [{
@@ -64,7 +60,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
         }
       }, {
         name: 'themeDesigner',
-        message: 'themeDesigner',
+        message: 'Who designed the theme?',
         default: function( answers ) {
           return answers.themeAuthor;
         }
@@ -76,56 +72,68 @@ var EmiGenerator = yeoman.generators.Base.extend({
         }
       }
     ];
-	
+   	
     this.prompt(prompts, function (props) {
       
-      this.themeName = props.themeName;
-      this.themeFunction = props.themeName.toLowerCase().trim().replace(/\s+/, "_");
-      this.themeHandle = props.themeName.toLowerCase().trim().replace(/\s+/g, '-');
-	    this.themeAuthor = props.themeAuthor;
-      this.themeAuthorURI = props.themeAuthorURI;
-      this.themeURI = props.themeURI;
+      this.themeName		= props.themeName;
+      this.themeHandle		= props.themeName.trim().replace(/ /g,'_');
+      this.themeFunction	= props.themeName.toLowerCase().trim().replace(/ /g,'_');
+      this.themeTextDomain	= props.themeName.toLowerCase().trim().replace(/ /g,'-');
+	  this.themeAuthor		= props.themeAuthor;
+      this.themeAuthorURI	= props.themeAuthorURI;
+      this.themeURI			= props.themeURI;
       this.themeDescription = props.themeDescription;
-
-      this.themeDesigner = props.themeDesigner;
+      this.themeDesigner	= props.themeDesigner;
       this.themeDesignerURI = props.themeDesignerURI;
 
-      this.taskRunner = props.taskRunner;
+      this.git = props.Git;
       
       done();
     }.bind(this));
   },
-
-  app: function () {
-	this.directory( 'assets', 'assets' );
-	this.directory( 'inc', 'inc' );
-	this.directory( 'scss', 'scss' );
-  },
   
   projectfiles: function () {
-    this.template('404.php', '404.php');
-    this.template('503.php', '503.php');
-    this.template('comments.php', 'comments.php');
-    this.template('content-page.php', 'content-page.php');
-    this.template('content.php', 'content.php');
-    this.template('footer.php', 'footer.php');
-    this.template('front-page.php', 'front-page.php');
-    this.template('functions.php', 'functions.php');
-    this.template('header.php', 'header.php');
-    this.template('index.php', 'index.php');
-    this.template('page-full-width.php', 'page-full-width.php');
-    this.template('page-redirect-url.php', 'page-redirect-url.php');
-    this.template('page-redirect.php', 'page-redirect.php');
-    this.template('page.php', 'page.php');
-    this.template('search.php', 'search.php');
-    this.template('searchform.php', 'searchform.php');
-    this.template('sidebar.php', 'sidebar.php');
-    this.template('single.php', 'single.php');
+	var complete	= this.async(),
+		self		= this
     
-    this.copy('style.css', 'style.css');
-    this.copy('gitignore', '.gitignore');
-    this.copy('gulpfile.js', 'gulpfile.js');
-    this.copy('gulp-package.json', 'package.json');
+	// parse recursively a directory
+	function parseDirectory( path ) {
+	
+		fs.readdir( path, function(err, files) {		  
+		  files.forEach( function(file) {
+		    var filePath = fs.realpathSync( path + '/' + file), 
+		    	isDirectory = fs.statSync( filePath ).isDirectory()
+		    
+			if (isDirectory) {
+				parseDirectory( filePath )
+			} else {
+				fs.readFile(filePath, 'utf8', function (err,data) {
+					data = data.replace(/themeName/g, self.themeName)
+					data = data.replace(/themeHandle/g, self.themeHandle)
+					data = data.replace(/themeFunction/g, self.themeFunction)
+					data = data.replace(/themeTextDomain/g, self.themeTextDomain)
+					data = data.replace(/themeAuthor/g, self.themeAuthor)
+					data = data.replace(/themeAuthorURI/g, self.themeAuthorURI)
+					data = data.replace(/themeURI/g, self.themeURI)
+					data = data.replace(/themeDescription/g, self.themeDescription)
+					data = data.replace(/themeDesigner/g, self.themeDesigner)
+					data = data.replace(/themeDesignerURI/g, self.themeDesignerURI)
+				  
+				  	fs.writeFile(filePath, data, 'utf8',  function (err) {
+				     if (err) return console.log(err);
+				    
+				    
+
+				  });
+				});
+			} //endif
+		  })
+		})
+	}
+	parseDirectory('.')
+	
+	complete()
+	this.copy('gitignore', '.gitignore');
     
   }
   

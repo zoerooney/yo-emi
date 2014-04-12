@@ -1,12 +1,12 @@
 {
   "name": "generator-emi",
-  "version": "1.1.0",
-  "description": "Yeoman generator for Emi Starter Theme",
+  "version": "2.0.0",
+  "description": "Yeoman generator for the Emi Starter Theme",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
   	"type": "git",
-  	"url": "git://github.com/zoerooney/Emi.git"
+  	"url": "git://github.com/zoerooney/yo-emi.git"
   }, 
   "author": {
     "name": "Zoe Rooney",
@@ -28,12 +28,11 @@
     "theme",
     "front-end",
     "gulp",
-    "grunt",
     "starter theme"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0"
+    "yeoman-generator": ">=0.16.0",
+    "chalk": ">=0.4.0"
   },
   "devDependencies": {
     "mocha": "*"
