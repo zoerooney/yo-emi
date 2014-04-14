@@ -21,20 +21,10 @@ $ sudo npm install -g yo
 ### Install Emi
 
 
-> THESE DIRECTIONS ARE NOT TRUE YET
-
-To install generator-emi from npm, run:
+You can install the Emi generator using the command:
 
 ```
 $ npm install -g generator-emi
-```
-
-> THESE DIRECTIONS WILL WORK FOR NOW
-
-Download this folder to someplace on your hard drive. From within the `generator-emi` directory:
-
-```
-$ npm link
 ```
 
 Then, you should be able to initiate the generator (you'll want to do this within an empty directory you create for your new theme):
@@ -44,6 +34,7 @@ $ yo emi
 ```
 
 ## Changelog
+2.0.2 Update installation directions
 2.0.1 Improve description  
 2.0.0 Pulls Emi from the theme's repo  
 1.0.0 Initial release

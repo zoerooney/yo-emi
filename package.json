@@ -31,7 +31,8 @@
     "theme",
     "front-end",
     "gulp",
-    "starter theme"
+    "starter theme",
+    "emi"
   ],
   "dependencies": {
     "yeoman-generator": ">=0.16.0",
