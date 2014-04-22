@@ -34,7 +34,8 @@ $ yo emi
 ```
 
 ## Changelog
-2.0.2 Update installation directions
+2.0.3 Fix package.json so other subdirectories are downloaded
+2.0.2 Update installation directions  
 2.0.1 Improve description  
 2.0.0 Pulls Emi from the theme's repo  
 1.0.0 Initial release
