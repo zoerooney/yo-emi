@@ -18,8 +18,13 @@ var EmiGenerator = yeoman.generators.Base.extend({
          npm: true,
          skipInstall: false,
          callback: function () {
+           if ( this.gitCommit ) {
+           	this.spawnCommand('gulp', ['setup']);
+           	console.log(chalk.yellow('\n\nLast but not least, we\'ll set up style.css and check into Git.\n\n'));
+           } else {
            	this.spawnCommand('gulp', ['styles']);
            	console.log(chalk.yellow('\n\nLast but not least, we\'ll set up style.css.\n\n'));
+           }
          }.bind(this)
        });
       }
@@ -78,6 +83,11 @@ var EmiGenerator = yeoman.generators.Base.extend({
         default: function( answers ) {
           return answers.themeAuthorURI;
         }
+      }, {
+        type: 'confirm',
+        name: 'gitCommit',
+        message: 'Can I check your files into Git automatically after your theme is generated for you?',
+        default: true
       }
     ];
    	
@@ -93,6 +103,8 @@ var EmiGenerator = yeoman.generators.Base.extend({
       this.themeDescription = props.themeDescription;
       this.themeDesigner	= props.themeDesigner;
       this.themeDesignerURI = props.themeDesignerURI;
+	  
+      this.gitCommit = props.gitCommit;
       
       done();
     }.bind(this));
