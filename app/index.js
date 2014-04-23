@@ -12,8 +12,16 @@ var EmiGenerator = yeoman.generators.Base.extend({
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        console.log(chalk.yellow('\n\nNext I\'ll install all the dependencies, so sit tight!\n\n'));
-        this.npmInstall();
+       console.log(chalk.yellow('\n\nNext I\'ll install all the dependencies, so sit tight!\n\n'));
+       this.installDependencies({
+         bower: false,
+         npm: true,
+         skipInstall: false,
+         callback: function () {
+           	this.spawnCommand('gulp', ['styles']);
+           	console.log(chalk.yellow('\n\nLast but not least, we\'ll set up style.css.\n\n'));
+         }.bind(this)
+       });
       }
     });
   },
@@ -56,7 +64,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
         name: 'themeDescription',
         message: 'Please briefly describe this theme.',
         default: function( answers ) {
-       	 return ''+answers.themeName+' custom theme';
+       	 return answers.themeName+' custom theme';
         }
       }, {
         name: 'themeDesigner',
@@ -85,8 +93,6 @@ var EmiGenerator = yeoman.generators.Base.extend({
       this.themeDescription = props.themeDescription;
       this.themeDesigner	= props.themeDesigner;
       this.themeDesignerURI = props.themeDesignerURI;
-
-      this.git = props.Git;
       
       done();
     }.bind(this));
@@ -121,8 +127,6 @@ var EmiGenerator = yeoman.generators.Base.extend({
 				  
 				  	fs.writeFile(filePath, data, 'utf8',  function (err) {
 				     if (err) return console.log(err);
-				    
-				    
 
 				  });
 				});
@@ -130,14 +134,9 @@ var EmiGenerator = yeoman.generators.Base.extend({
 		  })
 		})
 	}
-	parseDirectory('.')
-	
+	parseDirectory('.')	
 	complete()
-	this.copy('gitignore', '.gitignore');
-    
   }
   
 });
-
-
 module.exports = EmiGenerator;
