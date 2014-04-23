@@ -34,6 +34,7 @@ $ yo emi
 ```
 
 ## Changelog
+2.0.4 Run `gulp styles` at end of generator to create working `style.css`  
 2.0.3 Fix package.json so other subdirectories are downloaded
 2.0.2 Update installation directions  
 2.0.1 Improve description  
