@@ -20,7 +20,7 @@ $ sudo npm install -g yo
 
 #### Install Gulp
 
-If you don't already have Gulp installed, go ahead and install it too:
+If you don't already have [Gulp](http://gulpjs.com/) installed, go ahead and install it too:
 ```
 $ npm install -g gulp
 ```
