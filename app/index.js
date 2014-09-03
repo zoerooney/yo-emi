@@ -57,7 +57,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
   	      return 'Zoe Rooney Web Development';
   	    }
       },{
-        name: 'themeAuthorURI',
+        name: 'authorURI',
         message: 'What\'s their website URL (the author)?',
         default: function( answers ) {
   	      return 'http://www.zoerooney.com';
@@ -78,10 +78,10 @@ var EmiGenerator = yeoman.generators.Base.extend({
           return answers.themeAuthor;
         }
       }, {
-        name: 'themeDesignerURI',
+        name: 'designerURI',
         message: 'Designer\'s website URL?',
         default: function( answers ) {
-          return answers.themeAuthorURI;
+          return answers.authorURI;
         }
       }, {
         type: 'confirm',
@@ -97,12 +97,12 @@ var EmiGenerator = yeoman.generators.Base.extend({
       this.themeHandle		= props.themeName.trim().replace(/ /g,'_');
       this.themeFunction	= props.themeName.toLowerCase().trim().replace(/ /g,'_');
       this.themeTextDomain	= props.themeName.toLowerCase().trim().replace(/ /g,'-');
-	  this.themeAuthor		= props.themeAuthor;
-      this.themeAuthorURI	= props.themeAuthorURI;
+	    this.themeAuthor		= props.themeAuthor;
+      this.authorURI	= props.authorURI;
       this.themeURI			= props.themeURI;
       this.themeDescription = props.themeDescription;
       this.themeDesigner	= props.themeDesigner;
-      this.themeDesignerURI = props.themeDesignerURI;
+      this.designerURI = props.designerURI;
 	  
       this.gitCommit = props.gitCommit;
       
@@ -131,11 +131,11 @@ var EmiGenerator = yeoman.generators.Base.extend({
 					data = data.replace(/themeFunction/g, self.themeFunction)
 					data = data.replace(/themeTextDomain/g, self.themeTextDomain)
 					data = data.replace(/themeAuthor/g, self.themeAuthor)
-					data = data.replace(/themeAuthorURI/g, self.themeAuthorURI)
+					data = data.replace(/authorURI/g, self.authorURI)
 					data = data.replace(/themeURI/g, self.themeURI)
 					data = data.replace(/themeDescription/g, self.themeDescription)
 					data = data.replace(/themeDesigner/g, self.themeDesigner)
-					data = data.replace(/themeDesignerURI/g, self.themeDesignerURI)
+					data = data.replace(/designerURI/g, self.designerURI)
 				  
 				  	fs.writeFile(filePath, data, 'utf8',  function (err) {
 				     if (err) return console.log(err);
