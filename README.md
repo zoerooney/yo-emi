@@ -38,7 +38,7 @@ You'll want to do this from your `/wp-content/themes/` directory or wherever you
 That's all there is to it!
 
 ## Changelog
-2.1 Updated ReadMe, version bump for refactor    
+2.1.0 Updated ReadMe, version bump for refactor    
 2.0.6 Updated to create the theme directory, fixed a few bugs  
 2.0.3 Fix package.json so other subdirectories are downloaded  
 2.0.2 Update installation directions  
