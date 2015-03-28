@@ -38,9 +38,9 @@ You'll want to do this from your `/wp-content/themes/` directory or wherever you
 That's all there is to it!
 
 ## Changelog
-2.0.7 Updated ReadMe a bit
-2.0.6 Updated to create the theme directory, fixed a few bugs
-2.0.3 Fix package.json so other subdirectories are downloaded
+2.1 Updated ReadMe, version bump for refactor    
+2.0.6 Updated to create the theme directory, fixed a few bugs  
+2.0.3 Fix package.json so other subdirectories are downloaded  
 2.0.2 Update installation directions  
 2.0.1 Improve description  
 2.0.0 Pulls Emi from the theme's repo  
