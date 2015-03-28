@@ -39,14 +39,14 @@ You can install the Emi generator using the command:
 $ npm install -g generator-emi
 ```
 
-Then, you should be able to initiate the generator (you'll want to do this within an empty directory you create for your new theme):
+Then, you should be able to initiate the generator. You'll want to do this from your /themes/ directory or wherever you want your new theme folder to live. Your theme files will be created in their own directory, named based on your inputs.
 
 ```
 $ yo emi
 ```
 
 ## Changelog
-2.0.4 Run `gulp styles` at end of generator to create working `style.css`  
+2.0.6 Updated to create the theme directory, fixed a few bugs
 2.0.3 Fix package.json so other subdirectories are downloaded
 2.0.2 Update installation directions  
 2.0.1 Improve description  
