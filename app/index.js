@@ -86,7 +86,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
 		// parse recursively a directory
 		function parseDirectory( path ) {
 
-			fs.readdir( path, function(err, files) {		  
+			fs.readdir( path , function(err, files) {		  
 				files.forEach( function(file) {
 					var filePath = fs.realpathSync( path + '/' + file), 
 						isDirectory = fs.statSync( filePath ).isDirectory()
@@ -94,7 +94,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
 					if (isDirectory) {
 						parseDirectory( filePath )
 					} else {
-						fs.readFile(filePath, 'utf8', function (err,data) {
+						fs.readFile( filePath, 'utf8', function (err,data) {
 							data = data.replace(/themeName/g, self.themeName)
 							data = data.replace(/themeHandle/g, self.themeHandle)
 							data = data.replace(/themeFunction/g, self.themeFunction)
@@ -114,7 +114,7 @@ var EmiGenerator = yeoman.generators.Base.extend({
 				})
 			})
 		}
-		parseDirectory('.')	
+		parseDirectory(self.themeTextDomain)	
 		complete()
 	},
 	install: function(){		
