@@ -1,6 +1,6 @@
 {
   "name": "generator-emi",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "description": "Use Yeoman to generate a clean, Sass and Gulp-ready WordPress starter theme",
   "license": "MIT",
   "homepage": "https://github.com/zoerooney/yo-emi",
